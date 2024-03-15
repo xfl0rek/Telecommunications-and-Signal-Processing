@@ -77,3 +77,23 @@ std::vector<bool> algorithm::getErrorVector(std::vector<bool> T, const std::vect
 
     return E;
 }
+
+std::vector<bool> algorithm::findError(const std::vector<bool>& E, const std::vector<std::vector<bool>>& matrix) {
+    std::vector<bool> error;
+
+    std::vector<bool> result = multiplyMatrixByVector(matrix, E);
+
+    for (size_t j = 0; j < matrix[0].size(); j++) {
+        std::vector<bool> column;
+        for (const auto & i : matrix) {
+            column.push_back(i[j]);
+        }
+        if (result == column) {
+            error.push_back(1);
+        } else {
+            error.push_back(0);
+        }
+    }
+
+    return error;
+}

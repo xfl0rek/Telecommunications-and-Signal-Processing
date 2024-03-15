@@ -78,5 +78,17 @@ int main() {
     }
     std::cout << std::endl;
 
+    std::cout << "-------------------------------------" << std::endl;
+    std::vector<bool> message = algorithm::textToBinary(text, doubleErrorMatrix);
+    std::vector<bool> E = algorithm::getErrorVector(message, doubleErrorMatrix);
+    std::vector<bool> error = algorithm::findError(E, doubleErrorMatrix);
+
+    std::cout << "Find error: " << std::endl;
+
+    for (const bool value : error) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
