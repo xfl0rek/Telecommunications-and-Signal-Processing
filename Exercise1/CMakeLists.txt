@@ -6,4 +6,4 @@ set(CMAKE_C_COMPILER "gcc")
 set(CMAKE_CXX_COMPILER "g++")
 
 
-add_executable(Exercise1 main.cpp)
+add_executable(Exercise1 src/main.cpp)
