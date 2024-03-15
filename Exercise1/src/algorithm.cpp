@@ -17,9 +17,9 @@ std::vector<bool> algorithm::multiplyMatrixByVector(const std::vector<std::vecto
         return {};
     }
 
-    const size_t colums = matrix[0].size();
+    const size_t columns = matrix[0].size();
 
-    if (colums != vector.size()) {
+    if (columns != vector.size()) {
         std::cerr << "Invalid matrix and vector sizes." << std::endl;
         return {};
     }
@@ -27,8 +27,8 @@ std::vector<bool> algorithm::multiplyMatrixByVector(const std::vector<std::vecto
     std::vector<bool> size(rows, 0);
 
     for (size_t i = 0; i < rows; ++i) {
-        for (size_t j = 0; j < colums; ++j) {
-            result[i] = result[i] || (matrix[i][j] && vector[j]);
+        for (size_t j = 0; j < columns; ++j) {
+            result[i] = result[i] ^ (matrix[i][j] && vector[j]);
         }
     }
 
@@ -66,17 +66,14 @@ std::vector<bool> algorithm::addParityBits(std::vector<bool> text, const std::ve
 
 std::vector<bool> algorithm::getErrorVector(std::vector<bool> T, const std::vector<std::vector<bool>>& matrix) {
     std::vector<bool> E;
+
     const int codeWordLength = matrix[0].size();
 
     for (int wordStartBit = 0; wordStartBit < T.size(); wordStartBit += codeWordLength) {
-        std::transform(matrix.begin(), matrix.end(), std::back_inserter(E),
-            [&](const std::vector<bool>& row) {
-            int result = 0;
-            for (int i = 0; i < codeWordLength; i++) {
-                result += T[wordStartBit + i] * row[i];
-            }
-            return result % 2;
-        });
+        std::vector<bool> wordFragment(T.begin() + wordStartBit, T.begin() + wordStartBit + codeWordLength);
+        std::vector<bool> result = multiplyMatrixByVector(matrix, wordFragment);
+        E.insert(E.end(), result.begin(), result.end());
     }
+
     return E;
 }
