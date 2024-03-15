@@ -41,5 +41,24 @@ int main() {
     }
     std::cout << std::endl;
 
+    std::string text = "dupa";
+
+    std::vector<bool> binary1 = algorithm::textToBinary(text, singleErrorMatrix);
+    std::vector<bool> binary2 = algorithm::textToBinary(text, doubleErrorMatrix);
+
+    std::cout << "Text to binary result:" << std::endl;
+
+    for (const bool value : binary1) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "Text to binary result:" << std::endl;
+
+    for (const bool value : binary2) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }

@@ -1,5 +1,6 @@
 #include "../include/algorithm.h"
 #include <iostream>
+#include <bitset>
 
 algorithm::algorithm() = default;
 
@@ -31,5 +32,17 @@ std::vector<bool> algorithm::multiplyMatrixByVector(const std::vector<std::vecto
         }
     }
 
+    return result;
+}
+
+std::vector<bool> algorithm::textToBinary(const std::string& text,
+    const std::vector<std::vector<bool>>& matrix) {
+    std::vector<bool> result;
+    const int size = matrix.size();
+    for (const char character : text) {
+        for (int j = size - 1; j >= 0; j--) {
+            result.push_back((character >> j) & 1);
+        }
+    }
     return result;
 }
