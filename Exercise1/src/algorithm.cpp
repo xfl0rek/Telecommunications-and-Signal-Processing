@@ -1,5 +1,6 @@
 #include "../include/algorithm.h"
 #include <iostream>
+#include <algorithm>
 
 algorithm::algorithm() = default;
 
@@ -61,4 +62,21 @@ std::vector<bool> algorithm::addParityBits(std::vector<bool> text, const std::ve
         }
     }
     return text;
+}
+
+std::vector<bool> algorithm::getErrorVector(std::vector<bool> T, const std::vector<std::vector<bool>>& matrix) {
+    std::vector<bool> E;
+    const int codeWordLength = matrix[0].size();
+
+    for (int wordStartBit = 0; wordStartBit < T.size(); wordStartBit += codeWordLength) {
+        std::transform(matrix.begin(), matrix.end(), std::back_inserter(E),
+            [&](const std::vector<bool>& row) {
+            int result = 0;
+            for (int i = 0; i < codeWordLength; i++) {
+                result += T[wordStartBit + i] * row[i];
+            }
+            return result % 2;
+        });
+    }
+    return E;
 }

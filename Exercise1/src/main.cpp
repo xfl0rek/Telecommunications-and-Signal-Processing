@@ -69,5 +69,14 @@ int main() {
     }
     std::cout << std::endl;
 
+    std::vector<bool> errorVector = algorithm::getErrorVector(parityBits, doubleErrorMatrix);
+
+    std::cout << "Error vector: " << std::endl;
+
+    for (const bool value : errorVector) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }

@@ -12,6 +12,7 @@ public:
     static std::vector<bool> textToBinary(const std::string& text,
         const std::vector<std::vector<bool>>& matrix);
     static std::vector<bool> addParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix);
+    static std::vector<bool> getErrorVector(std::vector<bool> T, const std::vector<std::vector<bool>>& matrix);
 };
 
 #endif //ALGORITHM_H
