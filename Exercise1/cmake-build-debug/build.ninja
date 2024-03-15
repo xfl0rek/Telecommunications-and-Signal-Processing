@@ -55,6 +55,12 @@ build CMakeFiles/Exercise1.dir/src/main.cpp.obj: CXX_COMPILER__Exercise1_unscann
   OBJECT_DIR = CMakeFiles\Exercise1.dir
   OBJECT_FILE_DIR = CMakeFiles\Exercise1.dir\src
 
+build CMakeFiles/Exercise1.dir/src/algorithm.cpp.obj: CXX_COMPILER__Exercise1_unscanned_Debug C$:/Users/Wojciech$ Florczak/CLionProjects/TiPS/Telecommunications-and-Signal-Processing/Exercise1/src/algorithm.cpp || cmake_object_order_depends_target_Exercise1
+  DEP_FILE = CMakeFiles\Exercise1.dir\src\algorithm.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Exercise1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Exercise1.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Exercise1
@@ -63,7 +69,7 @@ build CMakeFiles/Exercise1.dir/src/main.cpp.obj: CXX_COMPILER__Exercise1_unscann
 #############################################
 # Link the executable Exercise1.exe
 
-build Exercise1.exe: CXX_EXECUTABLE_LINKER__Exercise1_Debug CMakeFiles/Exercise1.dir/src/main.cpp.obj
+build Exercise1.exe: CXX_EXECUTABLE_LINKER__Exercise1_Debug CMakeFiles/Exercise1.dir/src/main.cpp.obj CMakeFiles/Exercise1.dir/src/algorithm.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Exercise1.dir
