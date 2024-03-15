@@ -1,4 +1,4 @@
 "C:\Users\Wojciech Florczak\AppData\Local\Programs\CLion Nova\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/Wojciech Florczak/AppData/Local/Programs/CLion Nova/bin/ninja/win/x64/ninja.exe" -G Ninja -S "C:\Users\Wojciech Florczak\CLionProjects\TiPS\Telecommunications-and-Signal-Processing\Exercise1" -B "C:\Users\Wojciech Florczak\CLionProjects\TiPS\Telecommunications-and-Signal-Processing\Exercise1\cmake-build-debug"
--- Configuring done (0.3s)
+-- Configuring done (0.2s)
 -- Generating done (0.0s)
 -- Build files have been written to: C:/Users/Wojciech Florczak/CLionProjects/TiPS/Telecommunications-and-Signal-Processing/Exercise1/cmake-build-debug

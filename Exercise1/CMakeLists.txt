@@ -7,4 +7,5 @@ set(CMAKE_CXX_COMPILER "g++")
 
 
 add_executable(Exercise1 src/main.cpp
-                include/singleErrorCode.h)
+        include/singleErrorCode.h
+        include/doubleErrorCode.h)
