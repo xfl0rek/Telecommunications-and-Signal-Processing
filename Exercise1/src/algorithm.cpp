@@ -1,6 +1,5 @@
 #include "../include/algorithm.h"
 #include <iostream>
-#include <bitset>
 
 algorithm::algorithm() = default;
 
@@ -45,4 +44,21 @@ std::vector<bool> algorithm::textToBinary(const std::string& text,
         }
     }
     return result;
+}
+
+std::vector<bool> algorithm::addParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix) {
+    int sum = 0;
+    for (int i = 0 ; i < matrix.size(); i++) {
+        for (int j = 0; j < matrix.size(); j++) {
+            if (matrix[i][j] == 1) {
+                sum += text[j];
+            }
+        }
+        if (sum % 2 == 1) {
+            text.push_back(1);
+        } else {
+            text.push_back(0);
+        }
+    }
+    return text;
 }

@@ -60,5 +60,14 @@ int main() {
     }
     std::cout << std::endl;
 
+    std::vector<bool> parityBits = algorithm::addParityBits(binary2, doubleErrorMatrix);
+
+    std::cout << "Add parity bits result:" << std::endl;
+
+    for (const bool value : parityBits) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
