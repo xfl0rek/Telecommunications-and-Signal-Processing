@@ -112,10 +112,33 @@ std::vector<bool> algorithm::correctMessage(std::vector<bool> message, const std
 }
 
 void algorithm::preparationForTransmission(const std::vector<std::vector<bool>>& matrix) {
-    std::string message;
     std::fstream file("../message.txt");
-    while (std::getline(file, message)) {
-        std::cout << message << std::endl;
+    if (!file.is_open()) {
+        std::cerr << "Failed to open the file." << std::endl;
+        return;
     }
+
+    std::string message;
+    if (!std::getline(file, message)) {
+        std::cerr << "Failed to read the message." << std::endl;
+        file.close();
+        return;
+    }
+
     file.close();
+
+    std::vector<bool> msg = textToBinary(message, matrix);
+    std::vector<bool> codedMessage = addParityBits(msg, matrix);
+
+    std::fstream codedFile("../codedMessage.txt");
+    if (!codedFile.is_open()) {
+        std::cerr << "Failed to open the file." << std::endl;
+        return;
+    }
+
+    for (auto&& i : codedMessage) {
+        codedFile << i;
+    }
+
+    codedFile.close();
 }
