@@ -98,5 +98,7 @@ int main() {
     }
     std::cout << std::endl;
 
+    algorithm::preparationForTransmission(doubleErrorMatrix);
+
     return 0;
 }

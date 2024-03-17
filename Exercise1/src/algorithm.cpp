@@ -1,6 +1,7 @@
 #include "../include/algorithm.h"
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 
 algorithm::algorithm() = default;
 
@@ -108,4 +109,13 @@ std::vector<bool> algorithm::correctMessage(std::vector<bool> message, const std
                    [](bool m, bool e) { return (m + e) % 2; });
 
     return correctedMessage;
+}
+
+void algorithm::preparationForTransmission(const std::vector<std::vector<bool>>& matrix) {
+    std::string message;
+    std::fstream file("../message.txt");
+    while (std::getline(file, message)) {
+        std::cout << message << std::endl;
+    }
+    file.close();
 }
