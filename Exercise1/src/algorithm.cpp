@@ -13,7 +13,7 @@ std::vector<bool> algorithm::multiplyMatrixByVector(const std::vector<std::vecto
     const size_t rows = matrix.size();
 
     if (rows == 0) {
-        std::cerr << "The matrix is empty" << std::endl;
+        std::cerr << "The matrix is empty." << std::endl;
         return {};
     }
 
@@ -96,4 +96,16 @@ std::vector<bool> algorithm::findError(const std::vector<bool>& E, const std::ve
     }
 
     return error;
+}
+
+std::vector<bool> algorithm::correctMessage(std::vector<bool> message, const std::vector<std::vector<bool>>& matrix) {
+    std::vector<bool> E = getErrorVector(message, matrix);
+
+    std::vector<bool> errorBits = findError(E, matrix);
+
+    std::vector<bool> correctedMessage(message.size());
+    std::transform(message.begin(), message.end(), errorBits.begin(), correctedMessage.begin(),
+                   [](bool m, bool e) { return (m + e) % 2; });
+
+    return correctedMessage;
 }

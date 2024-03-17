@@ -90,5 +90,13 @@ int main() {
     }
     std::cout << std::endl;
 
+    std::vector<bool> dupa = algorithm::correctMessage(message, doubleErrorMatrix);
+
+    std::cout << "corrected message: " << std::endl;
+    for (const bool value : dupa) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
