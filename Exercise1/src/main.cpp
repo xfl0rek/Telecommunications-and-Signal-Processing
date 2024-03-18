@@ -108,5 +108,14 @@ int main() {
 
     std::cout << binaryToText << std::endl;
 
+    std::cout << "Remove parity bits:" << std::endl;
+
+    std::vector<bool> removeParityBits = algorithm::removeParityBits(parityBits, doubleErrorMatrix);
+
+    for (const bool value : removeParityBits) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }

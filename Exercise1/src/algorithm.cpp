@@ -161,3 +161,20 @@ std::string algorithm::binaryToText(const std::vector<bool>& binary, const std::
     }
     return result;
 }
+
+//TODO: check this method because calling it leaves two bits at the end of the message. Too bad!
+std::vector<bool> algorithm::removeParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix) {
+    std::vector<bool> result;
+    for (int i = 0 ; i < matrix.size(); i++) {
+        int sum = 0;
+        for (int j = 0; j < matrix.size(); j++) {
+            if (matrix[i][j] == 1) {
+                sum += text[j];
+            }
+        }
+        if (sum % 2 == 1) {
+            text.pop_back();
+        }
+    }
+    return text;
+}
