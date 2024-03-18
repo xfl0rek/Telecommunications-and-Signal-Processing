@@ -100,5 +100,13 @@ int main() {
 
     algorithm::preparationForTransmission(doubleErrorMatrix);
 
+    std::cout << std::endl;
+
+    std::cout << "binary to text:" << std::endl;
+
+    std::string binaryToText = algorithm::binaryToText(message, doubleErrorMatrix);
+
+    std::cout << binaryToText << std::endl;
+
     return 0;
 }

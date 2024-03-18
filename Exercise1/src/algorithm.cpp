@@ -142,3 +142,22 @@ void algorithm::preparationForTransmission(const std::vector<std::vector<bool>>&
 
     codedFile.close();
 }
+
+std::string algorithm::binaryToText(const std::vector<bool>& binary, const std::vector<std::vector<bool>>& matrix) {
+    std::string result;
+    const int size = matrix.size();
+    std::vector<bool> currentCharBits;
+
+    for (const bool i : binary) {
+        currentCharBits.push_back(i);
+        if (currentCharBits.size() == size) {
+            char character = 0;
+            for (size_t j = 0; j < currentCharBits.size(); ++j) {
+                character |= currentCharBits[j] << (size - 1 - j);
+            }
+            result += character;
+            currentCharBits.clear();
+        }
+    }
+    return result;
+}
