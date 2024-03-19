@@ -178,3 +178,26 @@ std::vector<bool> algorithm::removeParityBits(std::vector<bool> text, const std:
     }
     return text;
 }
+
+void algorithm::restoringDataAfterTransmission(const std::vector<std::vector<bool>>& matrix) {
+    std::vector<bool> codedMessage;
+
+    std::fstream codedFile("../codedMessage.txt");
+    if (!codedFile.is_open()) {
+        std::cerr << "Failed to open the file." << std::endl;
+        return;
+    }
+
+    char value;
+    while (codedFile >> value) {
+        if (value == '0') {
+            codedMessage.push_back(0);
+        } else if (value == '1') {
+            codedMessage.push_back(1);
+        } else {
+            std::cerr << "Invalid value in the file." << std::endl;
+            return;
+        }
+    }
+    codedFile.close();
+}

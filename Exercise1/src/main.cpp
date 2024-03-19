@@ -117,5 +117,7 @@ int main() {
     }
     std::cout << std::endl;
 
+    algorithm::restoringDataAfterTransmission(doubleErrorMatrix);
+
     return 0;
 }
