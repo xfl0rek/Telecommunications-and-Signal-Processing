@@ -49,20 +49,17 @@ std::vector<bool> algorithm::textToBinary(const std::string& text,
 }
 
 std::vector<bool> algorithm::addParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix) {
-    int sum = 0;
-    for (int i = 0 ; i < matrix.size(); i++) {
-        for (int j = 0; j < matrix.size(); j++) {
-            if (matrix[i][j] == 1) {
-                sum += text[j];
-            }
+    std::vector<bool> result;
+
+    for (size_t i = 0; i < text.size(); i += matrix.size()) {
+        for (size_t j = 0; j < matrix.size(); j++) {
+            result.push_back(text[i + j]);
         }
-        if (sum % 2 == 1) {
-            text.push_back(1);
-        } else {
-            text.push_back(0);
-        }
+        std::vector<bool> subVector(text.begin() + i, text.begin() + i + matrix[0].size());
+        std::vector<bool> parityBits = multiplyMatrixByVector(matrix, subVector);
+        result.insert(result.end(), parityBits.begin(), parityBits.end());
     }
-    return text;
+    return result;
 }
 
 std::vector<bool> algorithm::getErrorVector(std::vector<bool> T, const std::vector<std::vector<bool>>& matrix) {
@@ -162,21 +159,15 @@ std::string algorithm::binaryToText(const std::vector<bool>& binary, const std::
     return result;
 }
 
-//TODO: check this method because calling it leaves two bits at the end of the message. Too bad!
 std::vector<bool> algorithm::removeParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix) {
     std::vector<bool> result;
-    for (int i = 0 ; i < matrix.size(); i++) {
-        int sum = 0;
-        for (int j = 0; j < matrix.size(); j++) {
-            if (matrix[i][j] == 1) {
-                sum += text[j];
-            }
-        }
-        if (sum % 2 == 1) {
-            text.pop_back();
+
+    for (size_t i = 0; i < text.size(); i += matrix.size()) {
+        for (size_t j = 0; j < matrix.size(); j++) {
+            result.push_back(text[i + j]);
         }
     }
-    return text;
+    return result;
 }
 
 void algorithm::restoringDataAfterTransmission(const std::vector<std::vector<bool>>& matrix) {
