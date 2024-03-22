@@ -50,15 +50,26 @@ std::vector<bool> algorithm::textToBinary(const std::string& text,
 
 std::vector<bool> algorithm::addParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix) {
     std::vector<bool> result;
+    std::vector<std::vector<bool>> subMatrix;
 
-    for (size_t i = 0; i < text.size(); i += matrix.size()) {
-        for (size_t j = 0; j < matrix.size(); j++) {
-            result.push_back(text[i + j]);
+    size_t subMatrixSize = matrix.size();
+    for (size_t i = 0; i < subMatrixSize; ++i) {
+        std::vector<bool> row;
+        for (size_t j = 0; j < subMatrixSize; ++j) {
+            row.push_back(matrix[i][j]);
         }
-        std::vector<bool> subVector(text.begin() + i, text.begin() + i + matrix[0].size());
-        std::vector<bool> parityBits = multiplyMatrixByVector(matrix, subVector);
+        subMatrix.push_back(row);
+    }
+
+    for (size_t i = 0; i < text.size(); i += 8) {
+        std::vector<bool> subText(text.begin() + i, text.begin() + i + 8);
+
+        std::vector<bool> parityBits = multiplyMatrixByVector(subMatrix, subText);
+
+        result.insert(result.end(), subText.begin(), subText.end());
         result.insert(result.end(), parityBits.begin(), parityBits.end());
     }
+
     return result;
 }
 

@@ -4,7 +4,6 @@
 #include "../include/algorithm.h"
 
 int main() {
-    //algorithm::preparationForTransmission(doubleErrorMatrix);
 
     std::string text = "dupa";
     std::vector<bool> message = algorithm::textToBinary(text, doubleErrorMatrix);
@@ -12,6 +11,7 @@ int main() {
     for (const bool value : message) {
         std::cout << value;
     }
+
     std::cout << std::endl;
 
     std::vector<bool> addParityBits = algorithm::addParityBits(message, doubleErrorMatrix);
@@ -19,18 +19,17 @@ int main() {
     for (const bool value : addParityBits) {
         std::cout << value;
     }
+
     std::cout << std::endl;
 
-    std::vector<bool> remove = algorithm::removeParityBits(message, doubleErrorMatrix);
+    std::vector<bool> E = algorithm::getErrorVector(addParityBits, doubleErrorMatrix);
 
-    for (const bool value : remove) {
-        std::cout << value;
+    for (const bool value : E) {
+        std:: cout << value;
     }
     std::cout << std::endl;
 
-    std::string decodedText = algorithm::binaryToText(remove, doubleErrorMatrix);
-
-    std::cout << decodedText;
+    algorithm::preparationForTransmission(doubleErrorMatrix);
 
     return 0;
 }
