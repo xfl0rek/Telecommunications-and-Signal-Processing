@@ -31,5 +31,16 @@ int main() {
 
     algorithm::preparationForTransmission(doubleErrorMatrix);
 
+    std::vector<bool> remove = algorithm::removeParityBits(addParityBits, doubleErrorMatrix);
+
+    for (const bool value : remove) {
+        std::cout << value;
+    }
+    std::cout << std::endl;
+
+    std::string decodedMessage = algorithm::binaryToText(remove, doubleErrorMatrix);
+
+    std::cout << decodedMessage << std::endl;
+
     return 0;
 }

@@ -88,35 +88,11 @@ std::vector<bool> algorithm::getErrorVector(std::vector<bool> T, const std::vect
 }
 
 std::vector<bool> algorithm::findError(const std::vector<bool>& E, const std::vector<std::vector<bool>>& matrix) {
-    std::vector<bool> error;
-
-    std::vector<bool> result = multiplyMatrixByVector(matrix, E);
-
-    for (size_t j = 0; j < matrix[0].size(); j++) {
-        std::vector<bool> column;
-        for (const auto & i : matrix) {
-            column.push_back(i[j]);
-        }
-        if (result == column) {
-            error.push_back(1);
-        } else {
-            error.push_back(0);
-        }
-    }
-
-    return error;
+    //TODO: Znajdowanie błędów.
 }
 
 std::vector<bool> algorithm::correctMessage(std::vector<bool> message, const std::vector<std::vector<bool>>& matrix) {
-    std::vector<bool> E = getErrorVector(message, matrix);
-
-    std::vector<bool> errorBits = findError(E, matrix);
-
-    std::vector<bool> correctedMessage(message.size());
-    std::transform(message.begin(), message.end(), errorBits.begin(), correctedMessage.begin(),
-                   [](bool m, bool e) { return (m + e) % 2; });
-
-    return correctedMessage;
+    //TODO: Poprawianie błędów.
 }
 
 void algorithm::preparationForTransmission(const std::vector<std::vector<bool>>& matrix) {
@@ -173,7 +149,7 @@ std::string algorithm::binaryToText(const std::vector<bool>& binary, const std::
 std::vector<bool> algorithm::removeParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix) {
     std::vector<bool> result;
 
-    for (size_t i = 0; i < text.size(); i += matrix.size()) {
+    for (size_t i = 0; i < text.size(); i += matrix[0].size()) {
         for (size_t j = 0; j < matrix.size(); j++) {
             result.push_back(text[i + j]);
         }
