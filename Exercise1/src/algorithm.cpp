@@ -29,7 +29,7 @@ std::vector<bool> algorithm::multiplyMatrixByVector(const std::vector<std::vecto
 
     for (size_t i = 0; i < rows; ++i) {
         for (size_t j = 0; j < columns; ++j) {
-            result[i] = result[i] ^ (matrix[i][j] && vector[j]);
+            result[i] = result[i] ^ (matrix[i][j] & vector[j]);
         }
     }
 
@@ -61,8 +61,8 @@ std::vector<bool> algorithm::addParityBits(std::vector<bool> text, const std::ve
         subMatrix.push_back(row);
     }
 
-    for (size_t i = 0; i < text.size(); i += 8) {
-        std::vector<bool> subText(text.begin() + i, text.begin() + i + 8);
+    for (size_t i = 0; i < text.size(); i += matrix.size()) {
+        std::vector<bool> subText(text.begin() + i, text.begin() + i + matrix.size());
 
         std::vector<bool> parityBits = multiplyMatrixByVector(subMatrix, subText);
 
@@ -76,10 +76,8 @@ std::vector<bool> algorithm::addParityBits(std::vector<bool> text, const std::ve
 std::vector<bool> algorithm::getErrorVector(std::vector<bool> T, const std::vector<std::vector<bool>>& matrix) {
     std::vector<bool> E;
 
-    const int codeWordLength = matrix[0].size();
-
-    for (int wordStartBit = 0; wordStartBit < T.size(); wordStartBit += codeWordLength) {
-        std::vector<bool> wordFragment(T.begin() + wordStartBit, T.begin() + wordStartBit + codeWordLength);
+    for (size_t i = 0; i < T.size(); i += matrix[0].size()) {
+        std::vector<bool> wordFragment(T.begin() + i, T.begin() + i + matrix[0].size());
         std::vector<bool> result = multiplyMatrixByVector(matrix, wordFragment);
         E.insert(E.end(), result.begin(), result.end());
     }
@@ -87,12 +85,45 @@ std::vector<bool> algorithm::getErrorVector(std::vector<bool> T, const std::vect
     return E;
 }
 
-std::vector<bool> algorithm::findError(const std::vector<bool>& E, const std::vector<std::vector<bool>>& matrix) {
-    //TODO: Znajdowanie błędów.
-}
+std::vector<bool> algorithm::detectAndCorrectErrors(std::vector<bool> &message, const std::vector<std::vector<bool> > &matrix) {
+    std::vector<bool> detectedErrors = getErrorVector(message, matrix);
 
-std::vector<bool> algorithm::correctMessage(std::vector<bool> message, const std::vector<std::vector<bool>>& matrix) {
-    //TODO: Poprawianie błędów.
+    bool errorDetected = std::any_of(detectedErrors.begin(), detectedErrors.end(), [](bool val) { return val; });
+
+    if (errorDetected) {
+        for (size_t i = 0; i < matrix[0].size(); ++i) {
+            bool isCorrect = true;
+            for (size_t j = 0; j < matrix.size(); ++j) {
+                if (matrix[j][i] != detectedErrors[j]) {
+                    isCorrect = false;
+                    break;
+                }
+            }
+            if (isCorrect) {
+                message[i] = !message[i];
+                return message;
+            }
+        }
+
+        for (size_t i = 0; i < matrix[0].size() - 1; ++i) {
+            for (size_t j = i + 1; j < matrix[0].size(); ++j) {
+                bool isCorrect = true;
+                for (size_t k = 0; k < matrix.size(); ++k) {
+                    if ((matrix[k][i] ^ matrix[k][j]) != detectedErrors[k]) {
+                        isCorrect = false;
+                        break;
+                    }
+                }
+                if (isCorrect) {
+                    message[i] = !message[i];
+                    message[j] = !message[j];
+                    return message;
+                }
+            }
+        }
+    }
+
+    return message;
 }
 
 void algorithm::preparationForTransmission(const std::vector<std::vector<bool>>& matrix) {
@@ -178,4 +209,16 @@ void algorithm::restoringDataAfterTransmission(const std::vector<std::vector<boo
         }
     }
     codedFile.close();
+
+    std::vector<bool> correctedMessage = detectAndCorrectErrors(codedMessage, matrix);
+    std::vector<bool> remove = removeParityBits(correctedMessage, matrix);
+    std::string decodedMessage = binaryToText(remove, matrix);
+
+    std::fstream decodedFile("../decodedMessage.txt");
+    if (decodedFile.is_open()) {
+        decodedFile << decodedMessage;
+    } else {
+        std::cout << "Failed to open the file.";
+    }
+    decodedFile.close();
 }

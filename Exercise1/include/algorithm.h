@@ -11,8 +11,7 @@ public:
     static std::vector<bool> textToBinary(const std::string& text, const std::vector<std::vector<bool>>& matrix);
     static std::vector<bool> addParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix);
     static std::vector<bool> getErrorVector(std::vector<bool> T, const std::vector<std::vector<bool>>& matrix);
-    static std::vector<bool> findError(const std::vector<bool>& E, const std::vector<std::vector<bool>>& matrix);
-    static std::vector<bool> correctMessage(std::vector<bool> message, const std::vector<std::vector<bool>>& matrix);
+    static std::vector<bool> detectAndCorrectErrors(std::vector<bool>& message, const std::vector<std::vector<bool>>& matrix);
     static void preparationForTransmission(const std::vector<std::vector<bool>>& matrix);
     static std::string binaryToText(const std::vector<bool>& binary, const std::vector<std::vector<bool>>& matrix);
     static std::vector<bool> removeParityBits(std::vector<bool> text, const std::vector<std::vector<bool>>& matrix);
