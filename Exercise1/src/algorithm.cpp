@@ -103,7 +103,25 @@ std::vector<bool> algorithm::detectAndCorrectErrors(std::vector<bool> &message, 
                 message[i] = !message[i];
             }
         }
+
+        for (size_t i = 0; i < message.size() - 1; ++i) {
+            for (size_t j = i + 1; j < message.size(); ++j) {
+                message[i] = !message[i];
+                message[j] = !message[j];
+
+                std::vector<bool> tempErrors = getErrorVector(message, matrix);
+                bool allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
+
+                if (allZero) {
+                    return message;
+                } else {
+                    message[i] = !message[i];
+                    message[j] = !message[j];
+                }
+            }
+        }
     }
+
     return message;
 }
 
