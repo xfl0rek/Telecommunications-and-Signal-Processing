@@ -91,38 +91,19 @@ std::vector<bool> algorithm::detectAndCorrectErrors(std::vector<bool> &message, 
     bool errorDetected = std::any_of(detectedErrors.begin(), detectedErrors.end(), [](bool val) { return val; });
 
     if (errorDetected) {
-        for (size_t i = 0; i < matrix[0].size(); ++i) {
-            bool isCorrect = true;
-            for (size_t j = 0; j < matrix.size(); ++j) {
-                if (matrix[j][i] != detectedErrors[j]) {
-                    isCorrect = false;
-                    break;
-                }
-            }
-            if (isCorrect) {
-                message[i] = !message[i];
-                return message;
-            }
-        }
+        for (size_t i = 0; i < message.size(); ++i) {
+            message[i] = !message[i];
 
-        for (size_t i = 0; i < matrix[0].size() - 1; ++i) {
-            for (size_t j = i + 1; j < matrix[0].size(); ++j) {
-                bool isCorrect = true;
-                for (size_t k = 0; k < matrix.size(); ++k) {
-                    if ((matrix[k][i] ^ matrix[k][j]) != detectedErrors[k]) {
-                        isCorrect = false;
-                        break;
-                    }
-                }
-                if (isCorrect) {
-                    message[i] = !message[i];
-                    message[j] = !message[j];
-                    return message;
-                }
+            std::vector<bool> tempErrors = getErrorVector(message, matrix);
+            bool allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
+
+            if (allZero) {
+                return message;
+            } else {
+                message[i] = !message[i];
             }
         }
     }
-
     return message;
 }
 
