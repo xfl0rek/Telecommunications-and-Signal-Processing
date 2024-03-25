@@ -53,7 +53,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				4
+				3
 			]
 		}
 	],
@@ -91,7 +91,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				4
+				3
 			]
 		},
 		{
@@ -99,8 +99,7 @@
 			"sourceIndexes" : 
 			[
 				1,
-				2,
-				3
+				2
 			]
 		}
 	],
@@ -114,12 +113,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/singleErrorCode.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "include/doubleErrorCode.h",
+			"path" : "include/matrix.h",
 			"sourceGroupIndex" : 1
 		},
 		{

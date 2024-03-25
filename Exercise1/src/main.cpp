@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/doubleErrorCode.h"
+#include "../include/matrix.h"
 #include "../include/algorithm.h"
 #include <fstream>
 
@@ -13,11 +13,11 @@ int main() {
 
     switch (choice) {
         case 1: {
-            algorithm::preparationForTransmission(doubleErrorMatrix);
+            algorithm::preparationForTransmission(matrix);
             break;
         }
         case 2: {
-            algorithm::restoringDataAfterTransmission(doubleErrorMatrix);
+            algorithm::restoringDataAfterTransmission(matrix);
             break;
         }
         default:

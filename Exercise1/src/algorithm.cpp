@@ -25,8 +25,6 @@ std::vector<bool> algorithm::multiplyMatrixByVector(const std::vector<std::vecto
         return {};
     }
 
-    std::vector<bool> size(rows, 0);
-
     for (size_t i = 0; i < rows; ++i) {
         for (size_t j = 0; j < columns; ++j) {
             result[i] = result[i] ^ (matrix[i][j] & vector[j]);
@@ -85,25 +83,25 @@ std::vector<bool> algorithm::getErrorVector(std::vector<bool> T, const std::vect
     return E;
 }
 
-std::vector<bool> algorithm::detectAndCorrectErrors(std::vector<bool> &message, const std::vector<std::vector<bool> > &matrix) {
-    std::vector<bool> detectedErrors = getErrorVector(message, matrix);
+std::vector<bool> algorithm::detectAndCorrectErrors(std::vector<bool> &message, const std::vector<std::vector<bool>> &matrix) {
+    std::vector<bool> E = getErrorVector(message, matrix);
 
-    bool errorDetected = std::any_of(detectedErrors.begin(), detectedErrors.end(), [](bool val) { return val; });
+    bool errorDetected = std::any_of(E.begin(), E.end(), [](bool val) { return val; });
 
     if (errorDetected) {
         for (size_t i = 0; i < message.size(); i += matrix[0].size()) {
             std::vector<bool> wordFragment(message.begin() + i, message.begin() + i + matrix[0].size());
 
-            std::vector<bool> tempErrors = getErrorVector(wordFragment, matrix);
-            bool allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
+            std::vector<bool> tempE = getErrorVector(wordFragment, matrix);
+            bool allZero = std::all_of(tempE.begin(), tempE.end(), [](bool val) { return val == 0; });
 
             if (!allZero) {
                 for (size_t j = 0; j < matrix[0].size(); ++j) {
                     std::vector<bool> testFragment = wordFragment;
                     testFragment[j] = !testFragment[j];
 
-                    tempErrors = getErrorVector(testFragment, matrix);
-                    allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
+                    tempE = getErrorVector(testFragment, matrix);
+                    allZero = std::all_of(tempE.begin(), tempE.end(), [](bool val) { return val == 0; });
 
                     if (allZero) {
                         std::copy(testFragment.begin(), testFragment.end(), message.begin() + i);
@@ -118,8 +116,8 @@ std::vector<bool> algorithm::detectAndCorrectErrors(std::vector<bool> &message, 
                             testFragment[j] = !testFragment[j];
                             testFragment[k] = !testFragment[k];
 
-                            tempErrors = getErrorVector(testFragment, matrix);
-                            allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
+                            tempE = getErrorVector(testFragment, matrix);
+                            allZero = std::all_of(tempE.begin(), tempE.end(), [](bool val) { return val == 0; });
 
                             if (allZero) {
                                 std::copy(testFragment.begin(), testFragment.end(), message.begin() + i);
