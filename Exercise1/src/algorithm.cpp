@@ -99,16 +99,36 @@ std::vector<bool> algorithm::detectAndCorrectErrors(std::vector<bool> &message, 
 
             if (!allZero) {
                 for (size_t j = 0; j < matrix[0].size(); ++j) {
-                    wordFragment[j] = !wordFragment[j];
+                    std::vector<bool> testFragment = wordFragment;
+                    testFragment[j] = !testFragment[j];
 
-                    tempErrors = getErrorVector(wordFragment, matrix);
+                    tempErrors = getErrorVector(testFragment, matrix);
                     allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
 
                     if (allZero) {
-                        std::copy(wordFragment.begin(), wordFragment.end(), message.begin() + i);
+                        std::copy(testFragment.begin(), testFragment.end(), message.begin() + i);
                         break;
-                    } else {
-                        wordFragment[j] = !wordFragment[j];
+                    }
+                }
+
+                if (!allZero) {
+                    for (size_t j = 0; j < matrix[0].size() - 1; ++j) {
+                        for (size_t k = j + 1; k < matrix[0].size(); ++k) {
+                            std::vector<bool> testFragment = wordFragment;
+                            testFragment[j] = !testFragment[j];
+                            testFragment[k] = !testFragment[k];
+
+                            tempErrors = getErrorVector(testFragment, matrix);
+                            allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
+
+                            if (allZero) {
+                                std::copy(testFragment.begin(), testFragment.end(), message.begin() + i);
+                                break;
+                            }
+                        }
+                        if (allZero) {
+                            break;
+                        }
                     }
                 }
             }
