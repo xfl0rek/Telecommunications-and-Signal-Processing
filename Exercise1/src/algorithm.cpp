@@ -91,32 +91,25 @@ std::vector<bool> algorithm::detectAndCorrectErrors(std::vector<bool> &message, 
     bool errorDetected = std::any_of(detectedErrors.begin(), detectedErrors.end(), [](bool val) { return val; });
 
     if (errorDetected) {
-        for (size_t i = 0; i < message.size(); ++i) {
-            message[i] = !message[i];
+        for (size_t i = 0; i < message.size(); i += matrix[0].size()) {
+            std::vector<bool> wordFragment(message.begin() + i, message.begin() + i + matrix[0].size());
 
-            std::vector<bool> tempErrors = getErrorVector(message, matrix);
+            std::vector<bool> tempErrors = getErrorVector(wordFragment, matrix);
             bool allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
 
-            if (allZero) {
-                return message;
-            } else {
-                message[i] = !message[i];
-            }
-        }
+            if (!allZero) {
+                for (size_t j = 0; j < matrix[0].size(); ++j) {
+                    wordFragment[j] = !wordFragment[j];
 
-        for (size_t i = 0; i < message.size() - 1; ++i) {
-            for (size_t j = i + 1; j < message.size(); ++j) {
-                message[i] = !message[i];
-                message[j] = !message[j];
+                    tempErrors = getErrorVector(wordFragment, matrix);
+                    allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
 
-                std::vector<bool> tempErrors = getErrorVector(message, matrix);
-                bool allZero = std::all_of(tempErrors.begin(), tempErrors.end(), [](bool val) { return val == false; });
-
-                if (allZero) {
-                    return message;
-                } else {
-                    message[i] = !message[i];
-                    message[j] = !message[j];
+                    if (allZero) {
+                        std::copy(wordFragment.begin(), wordFragment.end(), message.begin() + i);
+                        break;
+                    } else {
+                        wordFragment[j] = !wordFragment[j];
+                    }
                 }
             }
         }
