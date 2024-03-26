@@ -1,8 +1,0 @@
-# ninja log v5
-12	1105	7331076025319187	CMakeFiles/Exercise1.dir/src/algorithm.cpp.obj	4bde0176a801768c
-5	572	7322022836824418	CMakeFiles/Exercise1.dir/main.cpp.obj	57b412c6016dec08
-1105	1272	7331076026934203	Exercise1.exe	37081c5b576e95e
-5	443	7331077417301740	build.ninja	689dc0394d4b8707
-6	681	7330934352680359	CMakeFiles/Exercise1.dir/src/main.cpp.obj	a5c2c0520b37b78d
-6	721	7331077632061312	CMakeFiles/Exercise1.dir/src/main.cpp.obj	a5c2c0520b37b78d
-722	910	7331077633867366	Exercise1.exe	37081c5b576e95e
