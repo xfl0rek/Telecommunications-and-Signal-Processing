@@ -1,0 +1,6 @@
+# ninja log v5
+10	1024	7342112631377784	CMakeFiles/Exercise1.dir/src/main.cpp.obj	a5c2c0520b37b78d
+2	1283	7342112633990771	CMakeFiles/Exercise1.dir/src/algorithm.cpp.obj	4bde0176a801768c
+1284	1487	7342112635974517	Exercise1.exe	26d5e4e55fad7b28
+4	818	7349849275860663	CMakeFiles/Exercise1.dir/src/main.cpp.obj	a5c2c0520b37b78d
+818	1025	7349849277879506	Exercise1.exe	26d5e4e55fad7b28

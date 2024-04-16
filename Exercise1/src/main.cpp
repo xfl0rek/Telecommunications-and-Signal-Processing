@@ -1,7 +1,6 @@
 #include <iostream>
 #include "../include/matrix.h"
 #include "../include/algorithm.h"
-#include <fstream>
 
 int main() {
     int choice;
