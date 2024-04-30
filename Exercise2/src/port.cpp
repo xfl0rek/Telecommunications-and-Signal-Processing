@@ -6,12 +6,18 @@ port::port() {
     openPort();
 
     if (handle != INVALID_HANDLE_VALUE) {
-        setupPort.DCBlength = sizeof(setupPort);
+         setupPort.DCBlength = sizeof(setupPort);
         GetCommState(handle, &setupPort);
         setupPort.BaudRate = CBR_9600;
         setupPort.Parity = NOPARITY;
         setupPort.StopBits = ONESTOPBIT;
         setupPort.ByteSize = 8;
+
+        timeouts.ReadIntervalTimeout = MAXDWORD;
+        timeouts.ReadTotalTimeoutMultiplier = 0;
+        timeouts.ReadTotalTimeoutConstant = 1000;
+        timeouts.WriteTotalTimeoutMultiplier = 0;
+        timeouts.WriteTotalTimeoutConstant = 0;
 
         SetCommState(handle, &setupPort);
         SetCommTimeouts(handle, &timeouts);
@@ -36,4 +42,10 @@ void port::openPort() {
 bool port::send(const std::vector<uint8_t>& data) {
     DWORD numOfWrittenBytes;
     return WriteFile(handle, data.data(), data.size(), &numOfWrittenBytes, NULL) != 0;
+}
+
+bool port::receive(std::vector<uint8_t>& buffer, size_t length) {
+    DWORD numOfReadBytes;
+    buffer.resize(length);
+    return ReadFile(handle, buffer.data(), length, &numOfReadBytes, NULL) != 0;
 }

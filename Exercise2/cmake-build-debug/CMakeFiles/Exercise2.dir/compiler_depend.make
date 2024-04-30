@@ -38,15 +38,21 @@ CMakeFiles/Exercise2.dir/src/main.cpp.obj: C:/Users/PC/CLionProjects/dupa/Teleco
   C:/MinGW/include/c++/9.2.0/bits/range_access.h \
   C:/MinGW/include/c++/9.2.0/bits/std_abs.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_algobase.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_bvector.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_construct.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_function.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_iterator.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_iterator_base_funcs.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_iterator_base_types.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_pair.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_relops.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_uninitialized.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_vector.h \
   C:/MinGW/include/c++/9.2.0/bits/streambuf.tcc \
   C:/MinGW/include/c++/9.2.0/bits/streambuf_iterator.h \
   C:/MinGW/include/c++/9.2.0/bits/string_view.tcc \
   C:/MinGW/include/c++/9.2.0/bits/stringfwd.h \
+  C:/MinGW/include/c++/9.2.0/bits/vector.tcc \
   C:/MinGW/include/c++/9.2.0/cctype \
   C:/MinGW/include/c++/9.2.0/cerrno \
   C:/MinGW/include/c++/9.2.0/clocale \
@@ -81,6 +87,8 @@ CMakeFiles/Exercise2.dir/src/main.cpp.obj: C:/Users/PC/CLionProjects/dupa/Teleco
   C:/MinGW/include/c++/9.2.0/system_error \
   C:/MinGW/include/c++/9.2.0/type_traits \
   C:/MinGW/include/c++/9.2.0/typeinfo \
+  C:/MinGW/include/c++/9.2.0/utility \
+  C:/MinGW/include/c++/9.2.0/vector \
   C:/MinGW/include/c++/9.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
   C:/MinGW/include/c++/9.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
   C:/MinGW/include/c++/9.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -379,15 +387,21 @@ CMakeFiles/Exercise2.dir/src/port.cpp.obj: C:/Users/PC/CLionProjects/dupa/Teleco
   C:/MinGW/include/c++/9.2.0/bits/range_access.h \
   C:/MinGW/include/c++/9.2.0/bits/std_abs.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_algobase.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_bvector.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_construct.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_function.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_iterator.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_iterator_base_funcs.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_iterator_base_types.h \
   C:/MinGW/include/c++/9.2.0/bits/stl_pair.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_relops.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_uninitialized.h \
+  C:/MinGW/include/c++/9.2.0/bits/stl_vector.h \
   C:/MinGW/include/c++/9.2.0/bits/streambuf.tcc \
   C:/MinGW/include/c++/9.2.0/bits/streambuf_iterator.h \
   C:/MinGW/include/c++/9.2.0/bits/string_view.tcc \
   C:/MinGW/include/c++/9.2.0/bits/stringfwd.h \
+  C:/MinGW/include/c++/9.2.0/bits/vector.tcc \
   C:/MinGW/include/c++/9.2.0/cctype \
   C:/MinGW/include/c++/9.2.0/cerrno \
   C:/MinGW/include/c++/9.2.0/clocale \
@@ -422,6 +436,8 @@ CMakeFiles/Exercise2.dir/src/port.cpp.obj: C:/Users/PC/CLionProjects/dupa/Teleco
   C:/MinGW/include/c++/9.2.0/system_error \
   C:/MinGW/include/c++/9.2.0/type_traits \
   C:/MinGW/include/c++/9.2.0/typeinfo \
+  C:/MinGW/include/c++/9.2.0/utility \
+  C:/MinGW/include/c++/9.2.0/vector \
   C:/MinGW/include/c++/9.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
   C:/MinGW/include/c++/9.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
   C:/MinGW/include/c++/9.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -742,6 +758,10 @@ C:/MinGW/include/c++/9.2.0/bits/postypes.h:
 
 C:/MinGW/include/c++/9.2.0/bits/cpp_type_traits.h:
 
+C:/MinGW/x86_64-w64-mingw32/include/stdlib.h:
+
+C:/MinGW/include/c++/9.2.0/bits/stl_relops.h:
+
 C:/MinGW/include/c++/9.2.0/bits/cxxabi_forced.h:
 
 C:/MinGW/include/c++/9.2.0/debug/debug.h:
@@ -790,6 +810,10 @@ C:/MinGW/x86_64-w64-mingw32/include/bcrypt.h:
 
 C:/MinGW/include/c++/9.2.0/bits/locale_classes.h:
 
+C:/MinGW/include/c++/9.2.0/bits/stl_bvector.h:
+
+C:/MinGW/include/c++/9.2.0/bits/stl_construct.h:
+
 C:/MinGW/include/c++/9.2.0/bits/locale_classes.tcc:
 
 C:/MinGW/include/c++/9.2.0/bits/ostream.tcc:
@@ -810,10 +834,6 @@ C:/MinGW/include/c++/9.2.0/bits/predefined_ops.h:
 
 C:/MinGW/include/c++/9.2.0/bits/move.h:
 
-C:/MinGW/x86_64-w64-mingw32/include/stdint.h:
-
-C:/MinGW/include/c++/9.2.0/ext/new_allocator.h:
-
 C:/MinGW/include/c++/9.2.0/bits/nested_exception.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/include/avx512bitalgintrin.h:
@@ -828,13 +848,21 @@ C:/MinGW/include/c++/9.2.0/bits/ptr_traits.h:
 
 C:/MinGW/include/c++/9.2.0/bits/stl_pair.h:
 
-C:/MinGW/include/c++/9.2.0/bits/streambuf_iterator.h:
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/include/xsavecintrin.h:
+
+C:/MinGW/include/c++/9.2.0/bits/stl_uninitialized.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/wincon.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/pthread_unistd.h:
 
+C:/MinGW/include/c++/9.2.0/bits/stl_vector.h:
+
 C:/MinGW/include/c++/9.2.0/bits/string_view.tcc:
+
+C:/MinGW/include/c++/9.2.0/bits/streambuf_iterator.h:
+
+C:/MinGW/include/c++/9.2.0/bits/vector.tcc:
 
 C:/MinGW/include/c++/9.2.0/cctype:
 
@@ -867,6 +895,10 @@ C:/MinGW/include/c++/9.2.0/cwctype:
 C:/MinGW/include/c++/9.2.0/debug/assertions.h:
 
 C:/MinGW/include/c++/9.2.0/ext/atomicity.h:
+
+C:/MinGW/x86_64-w64-mingw32/include/stdint.h:
+
+C:/MinGW/include/c++/9.2.0/ext/new_allocator.h:
 
 C:/MinGW/include/c++/9.2.0/x86_64-w64-mingw32/bits/atomic_word.h:
 
@@ -917,6 +949,10 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/include/pconfigintrin.h:
 C:/MinGW/include/c++/9.2.0/type_traits:
 
 C:/MinGW/include/c++/9.2.0/typeinfo:
+
+C:/MinGW/include/c++/9.2.0/utility:
+
+C:/MinGW/include/c++/9.2.0/vector:
 
 C:/MinGW/include/c++/9.2.0/x86_64-w64-mingw32/bits/c++allocator.h:
 
@@ -1099,8 +1135,6 @@ C:/MinGW/x86_64-w64-mingw32/include/winsock.h:
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/include/xmmintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/include/xopintrin.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/include/xsavecintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/include/xsaveintrin.h:
 
@@ -1315,8 +1349,6 @@ C:/MinGW/x86_64-w64-mingw32/include/tvout.h:
 C:/MinGW/x86_64-w64-mingw32/include/stddef.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/stdio.h:
-
-C:/MinGW/x86_64-w64-mingw32/include/stdlib.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/stralign.h:
 
