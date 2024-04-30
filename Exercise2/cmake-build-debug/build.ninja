@@ -55,6 +55,24 @@ build CMakeFiles/Exercise2.dir/src/main.cpp.obj: CXX_COMPILER__Exercise2_unscann
   OBJECT_DIR = CMakeFiles\Exercise2.dir
   OBJECT_FILE_DIR = CMakeFiles\Exercise2.dir\src
 
+build CMakeFiles/Exercise2.dir/src/receiver.cpp.obj: CXX_COMPILER__Exercise2_unscanned_Debug C$:/Users/Wojciech$ Florczak/CLionProjects/TiPS/Telecommunications-and-Signal-Processing/Exercise2/src/receiver.cpp || cmake_object_order_depends_target_Exercise2
+  DEP_FILE = CMakeFiles\Exercise2.dir\src\receiver.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Exercise2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Exercise2.dir\src
+
+build CMakeFiles/Exercise2.dir/src/transmitter.cpp.obj: CXX_COMPILER__Exercise2_unscanned_Debug C$:/Users/Wojciech$ Florczak/CLionProjects/TiPS/Telecommunications-and-Signal-Processing/Exercise2/src/transmitter.cpp || cmake_object_order_depends_target_Exercise2
+  DEP_FILE = CMakeFiles\Exercise2.dir\src\transmitter.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Exercise2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Exercise2.dir\src
+
+build CMakeFiles/Exercise2.dir/src/port.cpp.obj: CXX_COMPILER__Exercise2_unscanned_Debug C$:/Users/Wojciech$ Florczak/CLionProjects/TiPS/Telecommunications-and-Signal-Processing/Exercise2/src/port.cpp || cmake_object_order_depends_target_Exercise2
+  DEP_FILE = CMakeFiles\Exercise2.dir\src\port.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Exercise2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Exercise2.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Exercise2
@@ -63,7 +81,7 @@ build CMakeFiles/Exercise2.dir/src/main.cpp.obj: CXX_COMPILER__Exercise2_unscann
 #############################################
 # Link the executable Exercise2.exe
 
-build Exercise2.exe: CXX_EXECUTABLE_LINKER__Exercise2_Debug CMakeFiles/Exercise2.dir/src/main.cpp.obj
+build Exercise2.exe: CXX_EXECUTABLE_LINKER__Exercise2_Debug CMakeFiles/Exercise2.dir/src/main.cpp.obj CMakeFiles/Exercise2.dir/src/receiver.cpp.obj CMakeFiles/Exercise2.dir/src/transmitter.cpp.obj CMakeFiles/Exercise2.dir/src/port.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Exercise2.dir

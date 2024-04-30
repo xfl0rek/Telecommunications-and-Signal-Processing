@@ -7,4 +7,10 @@ set(CMAKE_CXX_COMPILER "g++")
 
 
 add_executable(Exercise2
-        src/main.cpp)
+        src/main.cpp
+        include/receiver.h
+        src/receiver.cpp
+        include/transmitter.h
+        src/transmitter.cpp
+        src/port.cpp
+        include/port.h)
