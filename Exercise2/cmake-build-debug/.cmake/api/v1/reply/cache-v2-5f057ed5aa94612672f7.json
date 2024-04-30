@@ -187,11 +187,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "CXX compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
-			"value" : "C:/MinGW/bin/g++.exe"
+			"type" : "UNINITIALIZED",
+			"value" : "g++.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -331,11 +331,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
-			"value" : "C:/MinGW/bin/gcc.exe"
+			"type" : "UNINITIALIZED",
+			"value" : "gcc.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
