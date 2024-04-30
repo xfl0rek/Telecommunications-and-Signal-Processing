@@ -2,6 +2,7 @@
 #define EXERCISE2_PORT_H
 
 #include <Windows.h>
+#include <iostream>
 
 #define SOH 0x01
 #define EOT 0x04

@@ -1,6 +1,7 @@
 #include <iostream>
+#include "../include/port.h"
 
 int main() {
-    std::cout << "dupa" << std::endl;
+    port port;
     return 0;
 }

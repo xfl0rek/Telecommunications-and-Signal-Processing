@@ -1,3 +1,16 @@
 # ninja log v5
 1	716	7361743356383493	CMakeFiles/Exercise2.dir/src/main.cpp.obj	98c7e34933a004d3
 719	921	7361743358381414	Exercise2.exe	b1089d972c8bea8d
+33	167	7361774717325183	CMakeFiles/Exercise2.dir/src/transmitter.cpp.obj	18e0f14174ff616e
+11	169	7361774717372940	CMakeFiles/Exercise2.dir/src/receiver.cpp.obj	fbc7012cae47ee79
+4	2182	7361774737502755	CMakeFiles/Exercise2.dir/src/main.cpp.obj	98c7e34933a004d3
+40	2210	7361774737786606	CMakeFiles/Exercise2.dir/src/port.cpp.obj	4d3be874a296821
+2210	2421	7361774739820720	Exercise2.exe	767f997ff8a6ccc4
+5	1806	7361775198936037	CMakeFiles/Exercise2.dir/src/port.cpp.obj	4d3be874a296821
+1807	1917	7361775199982842	Exercise2.exe	767f997ff8a6ccc4
+5	2012	7361775680155793	CMakeFiles/Exercise2.dir/src/port.cpp.obj	4d3be874a296821
+2013	2134	7361775681291526	Exercise2.exe	767f997ff8a6ccc4
+5	1846	7361775789984467	CMakeFiles/Exercise2.dir/src/port.cpp.obj	4d3be874a296821
+1847	1967	7361775791120930	Exercise2.exe	767f997ff8a6ccc4
+7	1990	7361778393801733	CMakeFiles/Exercise2.dir/src/port.cpp.obj	4d3be874a296821
+1990	2147	7361778395317739	Exercise2.exe	767f997ff8a6ccc4
