@@ -6,22 +6,34 @@ port::port() {
     openPort();
 
     if (handle != INVALID_HANDLE_VALUE) {
-         setupPort.DCBlength = sizeof(setupPort);
-        GetCommState(handle, &setupPort);
-        setupPort.BaudRate = CBR_9600;
-        setupPort.Parity = NOPARITY;
-        setupPort.StopBits = ONESTOPBIT;
-        setupPort.ByteSize = 8;
+        setupPort.DCBlength = sizeof(setupPort);
+		GetCommState(handle, &setupPort);
+		setupPort.BaudRate = CBR_9600;
+		setupPort.Parity = NOPARITY;
+		setupPort.StopBits = ONESTOPBIT;
+		setupPort.ByteSize = 8;
 
-        timeouts.ReadIntervalTimeout = MAXDWORD;
-        timeouts.ReadTotalTimeoutMultiplier = 0;
-        timeouts.ReadTotalTimeoutConstant = 1000;
-        timeouts.WriteTotalTimeoutMultiplier = 0;
-        timeouts.WriteTotalTimeoutConstant = 0;
+		setupPort.fParity = TRUE;
+		setupPort.fDtrControl = DTR_CONTROL_DISABLE;
+		setupPort.fRtsControl = RTS_CONTROL_DISABLE;
+		setupPort.fOutxCtsFlow = FALSE;
+		setupPort.fOutxDsrFlow = FALSE;
+		setupPort.fDsrSensitivity = FALSE;
+		setupPort.fAbortOnError = FALSE;
+		setupPort.fOutX = FALSE;
+		setupPort.fInX = FALSE;
+		setupPort.fErrorChar = FALSE;
+		setupPort.fNull = FALSE;
 
-        SetCommState(handle, &setupPort);
-        SetCommTimeouts(handle, &timeouts);
-        ClearCommError(handle, &error, &portResources);
+		timeouts.ReadIntervalTimeout = 10000;
+		timeouts.ReadTotalTimeoutMultiplier = 0;
+		timeouts.ReadTotalTimeoutConstant = 10000;
+		timeouts.WriteTotalTimeoutMultiplier = 0;
+		timeouts.WriteTotalTimeoutConstant = 0;
+
+		SetCommState(handle, &setupPort);
+		SetCommTimeouts(handle, &timeouts);
+		ClearCommError(handle, &error, &portResources);
     } else {
         std::cout << "Connection failed. Check if the port exists or is not already occupied." << std::endl;
         exit(1);
