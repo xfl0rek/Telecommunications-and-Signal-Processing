@@ -80,12 +80,12 @@ clean: CMakeFiles/Exercise2.dir/clean
 CMakeFiles/Exercise2.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Exercise2.dir\build.make CMakeFiles/Exercise2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Exercise2.dir\build.make CMakeFiles/Exercise2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\PC\CLionProjects\dupa\Telecommunications-and-Signal-Processing\Exercise2\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target Exercise2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\PC\CLionProjects\dupa\Telecommunications-and-Signal-Processing\Exercise2\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Exercise2"
 .PHONY : CMakeFiles/Exercise2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Exercise2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\PC\CLionProjects\dupa\Telecommunications-and-Signal-Processing\Exercise2\cmake-build-debug\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\PC\CLionProjects\dupa\Telecommunications-and-Signal-Processing\Exercise2\cmake-build-debug\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Exercise2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\PC\CLionProjects\dupa\Telecommunications-and-Signal-Processing\Exercise2\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/Exercise2.dir/rule

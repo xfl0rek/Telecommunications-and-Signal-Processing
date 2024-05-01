@@ -89,6 +89,9 @@
 		<Unit filename="C:/Users/PC/CLionProjects/dupa/Telecommunications-and-Signal-Processing/Exercise2/include/transmitter.h">
 			<Option target="Exercise2"/>
 		</Unit>
+		<Unit filename="C:/Users/PC/CLionProjects/dupa/Telecommunications-and-Signal-Processing/Exercise2/include/utility.h">
+			<Option target="Exercise2"/>
+		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/dupa/Telecommunications-and-Signal-Processing/Exercise2/src/main.cpp">
 			<Option target="Exercise2"/>
 		</Unit>
@@ -99,6 +102,9 @@
 			<Option target="Exercise2"/>
 		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/dupa/Telecommunications-and-Signal-Processing/Exercise2/src/transmitter.cpp">
+			<Option target="Exercise2"/>
+		</Unit>
+		<Unit filename="C:/Users/PC/CLionProjects/dupa/Telecommunications-and-Signal-Processing/Exercise2/src/utility.cpp">
 			<Option target="Exercise2"/>
 		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/dupa/Telecommunications-and-Signal-Processing/Exercise2/CMakeLists.txt">

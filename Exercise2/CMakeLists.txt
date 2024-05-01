@@ -13,4 +13,7 @@ add_executable(Exercise2
         include/transmitter.h
         src/transmitter.cpp
         src/port.cpp
-        include/port.h)
+        include/port.h
+        include/utility.h
+        src/utility.cpp
+)

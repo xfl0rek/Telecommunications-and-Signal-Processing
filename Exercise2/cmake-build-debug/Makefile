@@ -224,6 +224,30 @@ src/transmitter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Exercise2.dir\build.make CMakeFiles/Exercise2.dir/src/transmitter.cpp.s
 .PHONY : src/transmitter.cpp.s
 
+src/utility.obj: src/utility.cpp.obj
+.PHONY : src/utility.obj
+
+# target to build an object file
+src/utility.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Exercise2.dir\build.make CMakeFiles/Exercise2.dir/src/utility.cpp.obj
+.PHONY : src/utility.cpp.obj
+
+src/utility.i: src/utility.cpp.i
+.PHONY : src/utility.i
+
+# target to preprocess a source file
+src/utility.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Exercise2.dir\build.make CMakeFiles/Exercise2.dir/src/utility.cpp.i
+.PHONY : src/utility.cpp.i
+
+src/utility.s: src/utility.cpp.s
+.PHONY : src/utility.s
+
+# target to generate assembly for a file
+src/utility.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Exercise2.dir\build.make CMakeFiles/Exercise2.dir/src/utility.cpp.s
+.PHONY : src/utility.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -245,6 +269,9 @@ help:
 	@echo ... src/transmitter.obj
 	@echo ... src/transmitter.i
 	@echo ... src/transmitter.s
+	@echo ... src/utility.obj
+	@echo ... src/utility.i
+	@echo ... src/utility.s
 .PHONY : help
 
 

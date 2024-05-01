@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/port.h"
+#include "../include/utility.h"
 
 int main() {
     port port;
@@ -12,7 +13,7 @@ int main() {
         std::cerr << "not uwu" << std::endl;
     }
 
-    std::vector<uint8_t> receivedData(10);
+    std::vector<uint8_t> receivedData = {0xAA, 0xBB, 0xCC, 0xDD};
     bool success2 = port.receive(receivedData, receivedData.size());
 
     if (success2) {
@@ -24,6 +25,15 @@ int main() {
     } else {
         std::cerr << "Error." << std::endl;
     }
+
+    const char* data = "Hello, world!";
+    int dataSize = 13;
+
+    char* mutableData = const_cast<char*>(data);
+
+    uint16_t crc = utility::calculateCRC(mutableData, dataSize);
+
+    std::cout << "CRC: " << std::hex << crc << std::endl;
 
     return 0;
 }
