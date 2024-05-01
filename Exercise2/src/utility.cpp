@@ -16,3 +16,12 @@ int utility::calculateCRC(char *data, int count) {
 
     return CRCchecksum;
 }
+
+int utility::calculateChecksum(const char *data) {
+    int checksum = 0;
+    for (int i = 0; i < 128; i++) {
+        checksum += (unsigned char)data[i];
+    }
+    checksum %= 256;
+    return checksum;
+}

@@ -35,5 +35,9 @@ int main() {
 
     std::cout << "CRC: " << std::hex << crc << std::endl;
 
+    int checksum = utility::calculateChecksum(data);
+
+    std::cout << "Checksum: " << checksum << std::endl;
+
     return 0;
 }

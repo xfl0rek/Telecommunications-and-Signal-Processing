@@ -6,7 +6,7 @@
 class utility {
 public:
     static int calculateCRC(char* data, int count);
-    int calculateChecksum(char* data);
+    static int calculateChecksum(const char* data);
 };
 
 #endif //EXERCISE2_UTILITY_H
