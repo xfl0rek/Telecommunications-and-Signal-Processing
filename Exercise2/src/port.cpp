@@ -40,7 +40,9 @@ port::port() {
     }
 }
 
-port::~port() = default;
+port::~port() {
+    CloseHandle(handle);
+}
 
 void port::openPort() {
     handle = CreateFile(portName.c_str(), GENERIC_READ | GENERIC_WRITE, 0, NULL,
