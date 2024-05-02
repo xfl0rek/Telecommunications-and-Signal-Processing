@@ -47,3 +47,14 @@
 7	2719	7363685953951867	CMakeFiles/Exercise2.dir/src/main.cpp.obj	98c7e34933a004d3
 46	3128	7363685958053533	CMakeFiles/Exercise2.dir/src/receiver.cpp.obj	fbc7012cae47ee79
 3129	4354	7363685970236419	Exercise2.exe	db4ef2a2a2596ad3
+7	4708	7363694792496542	CMakeFiles/Exercise2.dir/src/main.cpp.obj	98c7e34933a004d3
+35	4953	7363694794931073	CMakeFiles/Exercise2.dir/src/transmitter.cpp.obj	18e0f14174ff616e
+73	5380	7363694799243520	CMakeFiles/Exercise2.dir/src/receiver.cpp.obj	fbc7012cae47ee79
+120	5723	7363694802664808	CMakeFiles/Exercise2.dir/src/port.cpp.obj	4d3be874a296821
+5723	28714	7363695032508969	Exercise2.exe	db4ef2a2a2596ad3
+4	2366	7363696024987552	CMakeFiles/Exercise2.dir/src/main.cpp.obj	98c7e34933a004d3
+7	1341	7363699076602194	Exercise2.exe	db4ef2a2a2596ad3
+6	3505	7363703560617079	CMakeFiles/Exercise2.dir/src/main.cpp.obj	98c7e34933a004d3
+46	4000	7363703565600688	CMakeFiles/Exercise2.dir/src/receiver.cpp.obj	fbc7012cae47ee79
+95	4314	7363703568730006	CMakeFiles/Exercise2.dir/src/transmitter.cpp.obj	18e0f14174ff616e
+4314	5352	7363703579034076	Exercise2.exe	db4ef2a2a2596ad3

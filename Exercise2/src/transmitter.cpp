@@ -81,7 +81,7 @@ void transmitter::transmit() {
 
                 if (sign == ACK_) {
                     isCorrectPacket = true;
-                    std::cout << "Packet data sent successfully!";
+                    std::cout << "Packet data sent successfully!\n";
                     break;
                 }
                 if (sign == NAK_) {
@@ -107,6 +107,6 @@ void transmitter::transmit() {
         if (sign == ACK_) break;
     }
 
-    std::cout << "File sent";
+    std::cout << "File sent.\n";
     Sleep(5000);
 }

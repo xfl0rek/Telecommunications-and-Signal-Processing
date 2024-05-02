@@ -186,6 +186,6 @@ void receiver::receive(bool withCRC) {
     file.close();
 
     if (sign == CAN) std::cout << "ERROR - connection terminated! \n";
-    else std::cout << "File received.";
+    else std::cout << "File received.\n";
     std::cin.get();
 }
