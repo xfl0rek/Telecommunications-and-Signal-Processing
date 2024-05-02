@@ -1,6 +1,7 @@
 #include "../include/port.h"
+#include "../include/globals.h"
 
-std::string portName = "COM3";
+std::string portName = "COM5";
 
 port::port() {
     openPort();
@@ -63,5 +64,19 @@ void port::receive(char *sign, int length) {
     while (pos < length) {
         ReadFile(handle, sign + pos, length - pos, &num, NULL);
         pos += num;
+    }
+}
+
+void port::receive(char *sign, unsigned long sizeOfSign) {
+    ReadFile(handle, sign, 1, &sizeOfSign, NULL);
+}
+
+void port::communicationTest()
+{
+    std::string text;
+    std::cout << "Podaj tekst ktory chcesz wyswietlic w HyperTerminalu:\n";
+    std::cin >> text;
+    for (int i = 0; i<text.length(); i++) {
+        WriteFile(handle, &text.at(i), numOfSigns, &sizeOfSign, NULL);
     }
 }

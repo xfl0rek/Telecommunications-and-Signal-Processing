@@ -16,4 +16,6 @@ add_executable(Exercise2
         include/port.h
         include/utility.h
         src/utility.cpp
+        include/globals.h
+        src/globals.cpp
 )

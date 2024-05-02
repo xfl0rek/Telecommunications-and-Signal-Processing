@@ -1,8 +1,16 @@
 #ifndef EXERCISE2_RECEIVER_H
 #define EXERCISE2_RECEIVER_H
 
-class receiver {
+#include "../include/port.h"
 
+class receiver {
+private:
+    port* Port;
+
+public:
+    receiver(port* port);
+    ~receiver();
+    void receive(bool withCRC);
 };
 
 #endif //EXERCISE2_RECEIVER_H

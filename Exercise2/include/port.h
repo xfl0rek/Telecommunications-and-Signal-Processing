@@ -14,19 +14,20 @@
 #define C 0x43
 
 class port {
-private:
+public:
     HANDLE handle;
     DCB setupPort;
     COMMTIMEOUTS timeouts;
     COMSTAT portResources;
     DWORD error;
 
-public:
     port();
     ~port();
     void openPort();
     void send(char* sign, int length);
     void receive(char* sign,int length);
+    void receive(char* sign, unsigned long sizeOfSign);
+    void communicationTest();
 };
 
 #endif //EXERCISE2_PORT_H
