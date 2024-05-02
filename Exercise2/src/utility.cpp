@@ -1,3 +1,4 @@
+#include <cstdint>
 #include "../include/utility.h"
 
 int utility::calculateCRC(char *data, int count) {

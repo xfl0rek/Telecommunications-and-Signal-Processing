@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <vector>
+#include <cstdint>
 
 #define SOH 0x01
 #define EOT 0x04
@@ -24,8 +25,8 @@ public:
     port();
     ~port();
     void openPort();
-    bool send(const std::vector<uint8_t>& data);
-    bool receive(std::vector<uint8_t>& buffer, size_t length);
+    void send(char* sign, int length);
+    void receive(char* sign,int length);
 };
 
 #endif //EXERCISE2_PORT_H

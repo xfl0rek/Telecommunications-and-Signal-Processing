@@ -1,39 +1,39 @@
 #include "../include/port.h"
 
-std::string portName = "COM1";
+std::string portName = "COM3";
 
 port::port() {
     openPort();
 
     if (handle != INVALID_HANDLE_VALUE) {
         setupPort.DCBlength = sizeof(setupPort);
-		GetCommState(handle, &setupPort);
-		setupPort.BaudRate = CBR_9600;
-		setupPort.Parity = NOPARITY;
-		setupPort.StopBits = ONESTOPBIT;
-		setupPort.ByteSize = 8;
+        GetCommState(handle, &setupPort);
+        setupPort.BaudRate = CBR_9600;
+        setupPort.Parity = NOPARITY;
+        setupPort.StopBits = ONESTOPBIT;
+        setupPort.ByteSize = 8;
 
-		setupPort.fParity = TRUE;
-		setupPort.fDtrControl = DTR_CONTROL_DISABLE;
-		setupPort.fRtsControl = RTS_CONTROL_DISABLE;
-		setupPort.fOutxCtsFlow = FALSE;
-		setupPort.fOutxDsrFlow = FALSE;
-		setupPort.fDsrSensitivity = FALSE;
-		setupPort.fAbortOnError = FALSE;
-		setupPort.fOutX = FALSE;
-		setupPort.fInX = FALSE;
-		setupPort.fErrorChar = FALSE;
-		setupPort.fNull = FALSE;
+        setupPort.fParity = TRUE;
+        setupPort.fDtrControl = DTR_CONTROL_DISABLE;
+        setupPort.fRtsControl = RTS_CONTROL_DISABLE;
+        setupPort.fOutxCtsFlow = FALSE;
+        setupPort.fOutxDsrFlow = FALSE;
+        setupPort.fDsrSensitivity = FALSE;
+        setupPort.fAbortOnError = FALSE;
+        setupPort.fOutX = FALSE;
+        setupPort.fInX = FALSE;
+        setupPort.fErrorChar = FALSE;
+        setupPort.fNull = FALSE;
 
-		timeouts.ReadIntervalTimeout = 10000;
-		timeouts.ReadTotalTimeoutMultiplier = 0;
-		timeouts.ReadTotalTimeoutConstant = 10000;
-		timeouts.WriteTotalTimeoutMultiplier = 0;
-		timeouts.WriteTotalTimeoutConstant = 0;
+        timeouts.ReadIntervalTimeout = 10000;
+        timeouts.ReadTotalTimeoutMultiplier = 10000;
+        timeouts.ReadTotalTimeoutConstant = 10000;
+        timeouts.WriteTotalTimeoutMultiplier = 100;
+        timeouts.WriteTotalTimeoutConstant = 100;
 
-		SetCommState(handle, &setupPort);
-		SetCommTimeouts(handle, &timeouts);
-		ClearCommError(handle, &error, &portResources);
+        SetCommState(handle, &setupPort);
+        SetCommTimeouts(handle, &timeouts);
+        ClearCommError(handle, &error, &portResources);
     } else {
         std::cout << "Connection failed. Check if the port exists or is not already occupied." << std::endl;
         exit(1);
@@ -51,13 +51,15 @@ void port::openPort() {
     }
 }
 
-bool port::send(const std::vector<uint8_t>& data) {
-    DWORD numOfWrittenBytes;
-    return WriteFile(handle, data.data(), data.size(), &numOfWrittenBytes, NULL) != 0;
+void port::send(char *sign, int length) {
+    DWORD num;
+    WriteFile(handle, sign, length, &num, NULL);
 }
 
-bool port::receive(std::vector<uint8_t>& buffer, size_t length) {
-    DWORD numOfReadBytes;
-    buffer.resize(length);
-    return ReadFile(handle, buffer.data(), length, &numOfReadBytes, NULL) != 0;
+void port::receive(char *sign, int length) {
+    DWORD pos = 0, num;
+    while (pos < length) {
+        ReadFile(handle, sign + pos, length - pos, &num, NULL);
+        pos += num;
+    }
 }
