@@ -27,7 +27,6 @@ public:
     void send(char* sign, int length);
     void receive(char* sign,int length);
     void receive(char* sign, unsigned long sizeOfSign);
-    void communicationTest();
 };
 
 #endif //EXERCISE2_PORT_H

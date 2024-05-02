@@ -4,10 +4,6 @@
 
 int main() {
     port port;
-//    transmitter transmitter(&port);
-//    transmitter.transmit();
-    receiver receiver(&port);
-    receiver.receive(false);
-    //port.communicationTest();
+
     return 0;
 }

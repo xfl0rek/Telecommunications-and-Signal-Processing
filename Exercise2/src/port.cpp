@@ -70,13 +70,3 @@ void port::receive(char *sign, int length) {
 void port::receive(char *sign, unsigned long sizeOfSign) {
     ReadFile(handle, sign, 1, &sizeOfSign, NULL);
 }
-
-void port::communicationTest()
-{
-    std::string text;
-    std::cout << "Podaj tekst ktory chcesz wyswietlic w HyperTerminalu:\n";
-    std::cin >> text;
-    for (int i = 0; i<text.length(); i++) {
-        WriteFile(handle, &text.at(i), numOfSigns, &sizeOfSign, NULL);
-    }
-}
