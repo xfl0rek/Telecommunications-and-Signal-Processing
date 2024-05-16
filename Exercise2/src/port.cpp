@@ -54,12 +54,12 @@ void port::openPort() {
     }
 }
 
-void port::send(char *sign, int length) {
+void port::send(char *sign, int length) const {
     DWORD num;
     WriteFile(handle, sign, length, &num, NULL);
 }
 
-void port::receive(char *sign, int length) {
+void port::receive(char *sign, int length) const {
     DWORD pos = 0, num;
     while (pos < length) {
         ReadFile(handle, sign + pos, length - pos, &num, NULL);
@@ -67,6 +67,6 @@ void port::receive(char *sign, int length) {
     }
 }
 
-void port::receive(char *sign, unsigned long sizeOfSign) {
+void port::receive(char *sign, unsigned long sizeOfSign) const {
     ReadFile(handle, sign, 1, &sizeOfSign, NULL);
 }

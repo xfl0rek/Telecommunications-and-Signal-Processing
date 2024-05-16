@@ -8,7 +8,7 @@ private:
     port* Port;
 
 public:
-    transmitter(port* port);
+    explicit transmitter(port* port);
     ~transmitter();
     void transmit();
 };

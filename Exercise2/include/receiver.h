@@ -8,7 +8,7 @@ private:
     port* Port;
 
 public:
-    receiver(port* port);
+    explicit receiver(port* port);
     ~receiver();
     void receive(bool withCRC);
 };

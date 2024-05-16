@@ -65,7 +65,7 @@ void transmitter::transmit() {
             Port->send(dataBlock, 128);
 
             if (!isCRC) {
-                char checksum = '\0';
+                char checksum = NULL;
                 checksum += utility::calculateChecksum(dataBlock);
                 Port->send(&checksum, numOfSigns);
             } else if (isCRC) {

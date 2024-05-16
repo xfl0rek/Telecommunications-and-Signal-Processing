@@ -24,9 +24,9 @@ public:
     port();
     ~port();
     void openPort();
-    void send(char* sign, int length);
-    void receive(char* sign,int length);
-    void receive(char* sign, unsigned long sizeOfSign);
+    void send(char* sign, int length) const;
+    void receive(char* sign,int length) const;
+    void receive(char* sign, unsigned long sizeOfSign) const;
 };
 
 #endif //EXERCISE2_PORT_H

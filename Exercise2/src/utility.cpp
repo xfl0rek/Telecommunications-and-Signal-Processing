@@ -2,20 +2,20 @@
 #include "../include/utility.h"
 
 int utility::calculateCRC(char *data, int count) {
-    uint16_t CRCchecksum = 0;
+    uint16_t CRCChecksum = 0;
 
     while (count-- > 0) {
-        CRCchecksum ^= static_cast<uint16_t>(*data++) << 8;
+        CRCChecksum ^= static_cast<uint16_t>(*data++) << 8;
         for (int i = 0; i < 8; ++i) {
-            if (CRCchecksum & 0x8000) {
-                CRCchecksum = (CRCchecksum << 1) ^ 0x1021;
+            if (CRCChecksum & 0x8000) {
+                CRCChecksum = (CRCChecksum << 1) ^ 0x1021;
             } else {
-                CRCchecksum <<= 1;
+                CRCChecksum <<= 1;
             }
         }
     }
 
-    return CRCchecksum;
+    return CRCChecksum;
 }
 
 int utility::calculateChecksum(const char *data) {
