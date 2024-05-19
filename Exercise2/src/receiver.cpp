@@ -61,7 +61,6 @@ void receiver::receive(bool withCRC) {
             sign = NAK_;
             Port->send(&sign, numOfSigns);
             isCorrectPacket = false;
-
         }
 
         if (isCorrectPacket) {
@@ -115,7 +114,6 @@ void receiver::receive(bool withCRC) {
             }
         }
     } else {
-
         Port->receive(errorControlSum, 1);
         isCorrectPacket = true;
 
