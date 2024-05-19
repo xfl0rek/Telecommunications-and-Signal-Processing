@@ -40,13 +40,10 @@ void transmitter::transmit() {
 
     file2.open(filename, std::ios::binary);
     while (!file2.eof()) {
-        for (char & i : dataBlock)
-            i = (char)26;
-
         int x = 0;
         while (x < 128 && !file2.eof()) {
             dataBlock[x] = file2.get();
-            if (file2.eof()) dataBlock[x] = (char)26;
+            if (file2.eof()) break;
             x++;
         }
         isCorrectPacket = false;
@@ -68,7 +65,7 @@ void transmitter::transmit() {
                 char checksum = NULL;
                 checksum += utility::calculateChecksum(dataBlock);
                 Port->send(&checksum, numOfSigns);
-            } else if (isCRC) {
+            } else {
                 tmpCRC = utility::calculateCRC(dataBlock, 128);
                 sign = utility::calculateCRCByte(tmpCRC, 1);
                 Port->send(&sign, numOfSigns);
