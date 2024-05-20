@@ -62,7 +62,7 @@ void transmitter::transmit() {
             Port->send(dataBlock, 128);
 
             if (!isCRC) {
-                char checksum = NULL;
+                char checksum = '\0';
                 checksum += utility::calculateChecksum(dataBlock);
                 Port->send(&checksum, numOfSigns);
             } else {
@@ -73,7 +73,7 @@ void transmitter::transmit() {
                 Port->send(&sign, numOfSigns);
             }
 
-            while (1) {
+            while (true) {
                 Port->receive(&sign, sizeOfSign);
 
                 if (sign == ACK_) {
@@ -93,11 +93,10 @@ void transmitter::transmit() {
         }
         if (packetNum == 255) packetNum = 1;
         else packetNum++;
-
     }
     file2.close();
 
-    while (1) {
+    while (true) {
         sign = EOT_;
         Port->send(&sign, numOfSigns);
         Port->receive(&sign, sizeOfSign);

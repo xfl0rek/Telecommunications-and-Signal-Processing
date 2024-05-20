@@ -72,7 +72,7 @@ void receiver::receive(bool withCRC) {
             sign = ACK_;
             Port->send(&sign, numOfSigns);
         }
-        while (1) {
+        while (true) {
             Port->receive(&sign, sizeOfSign);
             if (sign == EOT || sign == CAN) break;
             std::cout << "Receiving...\n";
@@ -133,7 +133,7 @@ void receiver::receive(bool withCRC) {
             WriteFile(Port->handle, &ACK_, numOfSigns, &sizeOfSign, NULL);
         }
 
-        while (1) {
+        while (true) {
             Port->receive(&sign, sizeOfSign);
             if (sign == EOT || sign == CAN) break;
             std::cout << "Receiving...\n";
